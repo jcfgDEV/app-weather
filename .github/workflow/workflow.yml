@@ -1,25 +1,20 @@
-name: DeploymentWeather
+name: WeatherDeploy
+
 on:
   push:
     branches:
-      - app-weather
+      - "app-weather"
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
         node-version: [15.x]
+    
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install Packages
-      run: npm install
-    - name: Deploy to GH Pages
-      run: |
-        git config --global user.email "${{secrets.SECRET_EMAIL_PERSONAL}}"
-        git config --global user.name "${{secrets.SECRET_USERNAME_PERSONAL}}"
-        git remote set-url origin https://${{secrets.ACCESS_PERSONAL_TOKEN}}@github.com/${{secrets.SECRET_USERNAME_PERSONAL}}/app-weather.git
-        npm run deploy
+      - uses: actions/checkout@v1
+      - run: npm install
+      - run: npm run build
+      - run: npm test
