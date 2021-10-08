@@ -52,8 +52,6 @@ function Main() {
         greeting = "Boa Noite";
     }
 
-
-
     return (
         <>
         <div className='center'>
