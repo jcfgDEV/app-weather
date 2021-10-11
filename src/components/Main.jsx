@@ -19,6 +19,7 @@ function Main() {
         setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude)
     }
+    
    
     const weather = async () => {
         try{
@@ -41,6 +42,7 @@ function Main() {
         setHours(NewHour);
     }
     setInterval(UpdatedTime,1000);
+
 
     //Greeting based on time of day
     var TimeHour = new Date().getHours();
