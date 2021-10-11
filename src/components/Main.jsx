@@ -14,6 +14,7 @@ function Main() {
     const [Latitude , setLatitude] = useState();
     const [Longitude , setLongitude] = useState();
 
+
     const SavePosition = (position) =>{
         setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude)
@@ -42,17 +43,8 @@ function Main() {
     setInterval(UpdatedTime,1000);
 
     //Greeting based on time of day
-    let greeting = "";
-    
-    if(Time >= 1 && Time < 12){
-        greeting = "Bom Dia";
-    }else if(Time >= 12 && Time < 19){
-        greeting = "Boa Tardes";
-    }else{
-        greeting = "Boa Noite";
-    }
+    var TimeHour = new Date().getHours();
 
-    
     return (
         <>
         <div className='center'>
@@ -60,7 +52,7 @@ function Main() {
             <div>
                 <div className='weather'>
                     <div className='Greeting'>
-                        {greeting}
+                        {TimeHour < 12 ? `Bom Dia` : TimeHour < 18 ? `Boa Tardes` : `Boa Noite`}
                     </div>
                     <div className='Date'>{Dates}</div>
                     <div className='Hour'>{Hours}  </div>
