@@ -19,7 +19,7 @@ function Main() {
         setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude)
     }
-    
+
    
     const weather = async () => {
         try{
@@ -47,14 +47,15 @@ function Main() {
     //Greeting based on time of day
     var TimeHour = new Date().getHours();
 
+
     return (
         <>
         <div className='center'>
             {(typeof Data.main != "undefined") ? (
             <div>
-                <div className='weather'>
+                <div className={TimeHour < 19 ? 'weather warm' : 'weather'}>
                     <div className='Greeting'>
-                        {TimeHour < 12 ? `Bom Dia` : TimeHour < 18 ? `Boa Tardes` : `Boa Noite`}
+                        {TimeHour < 12 ? `Bom Dia` : TimeHour < 19 ? `Boa Tardes` : `Boa Noite`}
                     </div>
                     <div className='Date'>{Dates}</div>
                     <div className='Hour'>{Hours}  </div>
