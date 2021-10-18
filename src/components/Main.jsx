@@ -33,8 +33,8 @@ function Main() {
     };
 
     useEffect(() => {
-        weather();
-    },[Latitude,Longitude])
+        weather();// eslint-disable-line
+    },[Latitude,Longitude]) // eslint-disable-line
 
     const UpdatedTime = () => {
         let H = new Date();
@@ -75,14 +75,6 @@ function Main() {
                 </div>
             </div>
             ) : ("")}
-        </div>
-        <div id="clouds">
-            <div className="cloud x1"></div>
-            <div className='cloud x2'></div>
-            <div className='cloud x3'></div>
-            <div className='cloud x4'></div>
-            <div className='cloud x5'></div>
-            
         </div>
         </>
     )
